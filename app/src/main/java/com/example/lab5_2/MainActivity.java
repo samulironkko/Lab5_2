@@ -1,13 +1,31 @@
 package com.example.lab5_2;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+
+    FloatingActionButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addButton = findViewById(R.id.add_button);
+        addButton.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, AddNewItemActivity.class);
+        startActivity(intent);
     }
 }
